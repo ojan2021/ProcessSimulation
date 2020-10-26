@@ -1,62 +1,34 @@
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.concurrent.locks.ReentrantLock;
 
-//import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FileUtils;
+
 
 public class VisitgreeceThread extends Thread {
 
-	ReentrantLock lock = new ReentrantLock();
-	public static long endTime;
 
-
-	public VisitgreeceThread(ReentrantLock lock) {
-		this.lock = lock;
-	}
 
 	@Override
 	public void run() {
 
-		synchronized (lock) {
-			
-			while (MainClass.flag != 4) {
-				try {
-					lock.wait();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
+		
 
 			System.out.println("File4 started");
 
 			long startTime = System.currentTimeMillis();
+			long endTime;
 
 			URL url;
 			try {
-				url = new URL("http://www.visitgreece.gr/deployedFiles/StaticFiles/maps/Peloponnese_map.pdf");
-				File target = new File("Peloponnese_map.pdf");
-//				url = new URL("http://25.io/toau/audio/sample.txt");
-//				File target = new File("proceedings.txt");
+//				url = new URL("http://www.visitgreece.gr/deployedFiles/StaticFiles/maps/Peloponnese_map.pdf");
+//				File file = new File("Peloponnese_map.pdf");
+				url = new URL("http://25.io/toau/audio/sample.txt");
+				File file = new File("Peloponnese_map.txt");
 
-				try (BufferedInputStream bis = new BufferedInputStream(url.openStream())) {
-					try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(target))) {
-						byte[] buffer = new byte[4096];
-						int bytesRead;
-						while ((bytesRead = bis.read(buffer)) != -1) {
-							bos.write(buffer, 0, bytesRead);
-						}
-						bos.flush();
-
-					}
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			} catch (MalformedURLException e1) {
+				file.createNewFile();
+				FileUtils.copyURLToFile(url, new File(file.getPath()));
+			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
 
@@ -64,13 +36,10 @@ public class VisitgreeceThread extends Thread {
 
 			
 
-			MainClass.flag = 1;
-			System.out.println("Flag became: " + MainClass.flag);
-			System.out.println("Downloaded in " + endTime + " seconds");
+			System.out.println("File4 Downloaded in " + endTime + " seconds");
 			System.out.println("------------------------------");
-			lock.notifyAll();
 
-		}
+		
 
 	}
 

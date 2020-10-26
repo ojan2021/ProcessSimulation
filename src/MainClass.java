@@ -1,17 +1,15 @@
-import java.util.concurrent.locks.ReentrantLock;
 
 public class MainClass {
-	public static int thread_mode = 0;
+	public static int thread_mode = 1;
 	public static int flag = 0;
 
 	public static void main(String[] args) {
 
-		ReentrantLock lock = new ReentrantLock();
-
-		UbicompThread ubicompThread = new UbicompThread(lock);
-		NasaThread nasaThread = new NasaThread(lock);
-		ArsThread arsThread = new ArsThread(lock);
-		VisitgreeceThread visitgreeceThread = new VisitgreeceThread(lock);
+		
+		UbicompThread ubicompThread = new UbicompThread();
+		NasaThread nasaThread = new NasaThread();
+		ArsThread arsThread = new ArsThread();
+		VisitgreeceThread visitgreeceThread = new VisitgreeceThread();
 		SingleThreadDownload sequentialDownload = new SingleThreadDownload();
 
 		if (thread_mode == 1) {

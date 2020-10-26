@@ -1,73 +1,37 @@
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.concurrent.locks.ReentrantLock;
 
-//import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FileUtils;
 
 public class NasaThread extends Thread {
 
-	ReentrantLock lock = new ReentrantLock();
-	public static long endTime;
-
-	public NasaThread(ReentrantLock lock) {
-		this.lock = lock;
-	}
 
 	@Override
 	public void run() {
 
-		synchronized (lock) {
+		System.out.println("File2 started");
 
-			while (MainClass.flag != 2) {
-				try {
-					lock.wait();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
+		long startTime = System.currentTimeMillis();
+		long endTime;
 
-			System.out.println("File2 started");
+		URL url;
+		try {
+//				url = new URL("https://www.hq.nasa.gov/alsj/a17/A17_FlightPlan.pdf");
+//				File file = new File("A17_FlightPlan.pdf");
+			url = new URL("http://25.io/toau/audio/sample.txt");
+			File file = new File("A17_FlightPlan.txt");
 
-			long startTime = System.currentTimeMillis();
-
-			URL url;
-			try {
-				url = new URL("https://www.hq.nasa.gov/alsj/a17/A17_FlightPlan.pdf");
-				File target = new File("A17_FlightPlan.pdf");
-//				url = new URL("http://25.io/toau/audio/sample.txt");
-//				File target = new File("proceedings.txt");
-
-				try (BufferedInputStream bis = new BufferedInputStream(url.openStream())) {
-					try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(target))) {
-						byte[] buffer = new byte[4096];
-						int bytesRead;
-						while ((bytesRead = bis.read(buffer)) != -1) {
-							bos.write(buffer, 0, bytesRead);
-						}
-						bos.flush();
-
-					}
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			} catch (MalformedURLException e1) {
-				e1.printStackTrace();
-			}
-
-			endTime = (System.currentTimeMillis() - startTime) / 1000;
-
-			MainClass.flag = 3;
-			System.out.println("Flag became: " + MainClass.flag);
-			System.out.println("Downloaded in " + endTime + " seconds");
-			System.out.println("------------------------------");
-			lock.notifyAll();
-
+			file.createNewFile();
+			FileUtils.copyURLToFile(url, new File(file.getPath()));
+		} catch (IOException e1) {
+			e1.printStackTrace();
 		}
+
+		endTime = (System.currentTimeMillis() - startTime) / 1000;
+
+		System.out.println("File2 Downloaded in " + endTime + " seconds");
+		System.out.println("------------------------------");
 
 	}
 }

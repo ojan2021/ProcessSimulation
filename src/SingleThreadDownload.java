@@ -16,10 +16,10 @@ public class SingleThreadDownload extends Thread {
 		long startTime = System.currentTimeMillis();
 
 		try {
-			url = new URL("http://www.ubicomp.org/ubicomp2003/adjunct_proceedings/proceedings.pdf");
-			File file = new File("proceedings.pdf");
-//			url = new URL("http://25.io/toau/audio/sample.txt");
-//			File target = new File("proceedings.txt");
+//			url = new URL("http://www.ubicomp.org/ubicomp2003/adjunct_proceedings/proceedings.pdf");
+//			File file = new File("proceedings.pdf");
+			url = new URL("http://25.io/toau/audio/sample.txt");
+			File file = new File("proceedings.txt");
 
 			file.createNewFile();
 			FileUtils.copyURLToFile(url, new File(file.getPath()));
@@ -39,10 +39,10 @@ public class SingleThreadDownload extends Thread {
 		startTime = System.currentTimeMillis();
 
 		try {
-			url = new URL("https://www.hq.nasa.gov/alsj/a17/A17_FlightPlan.pdf");
-			File file = new File("A17_FlightPlan.pdf");
-//			url = new URL("http://25.io/toau/audio/sample.txt");
-//			File target = new File("A17_FlightPlan.txt");
+//			url = new URL("https://www.hq.nasa.gov/alsj/a17/A17_FlightPlan.pdf");
+//			File file = new File("A17_FlightPlan.pdf");
+			url = new URL("http://25.io/toau/audio/sample.txt");
+			File file = new File("A17_FlightPlan.txt");
 
 			file.createNewFile();
 			FileUtils.copyURLToFile(url, new File(file.getPath()));
@@ -61,10 +61,10 @@ public class SingleThreadDownload extends Thread {
 		startTime = System.currentTimeMillis();
 
 		try {
-			url = new URL("https://ars.els-cdn.com/content/image/1-s2.0-S0140673617321293-mmc1.pdf");
-			File file = new File("1-s2.0-S0140673617321293-mmc1.pdf");
-//			url = new URL("http://25.io/toau/audio/sample.txt");
-//			File target = new File("1-s2.0-S0140673617321293-mmc1.txt");
+//			url = new URL("https://ars.els-cdn.com/content/image/1-s2.0-S0140673617321293-mmc1.pdf");
+//			File file = new File("1-s2.0-S0140673617321293-mmc1.pdf");
+			url = new URL("http://25.io/toau/audio/sample.txt");
+			File file = new File("1-s2.0-S0140673617321293-mmc1.txt");
 
 			file.createNewFile();
 			FileUtils.copyURLToFile(url, new File(file.getPath()));
@@ -83,10 +83,10 @@ public class SingleThreadDownload extends Thread {
 		startTime = System.currentTimeMillis();
 
 		try {
-			url = new URL("http://www.visitgreece.gr/deployedFiles/StaticFiles/maps/Peloponnese_map.pdf");
-			File file = new File("Peloponnese_map.pdf");
-//			url = new URL("http://25.io/toau/audio/sample.txt");
-//			File target = new File("Peloponnese_map.txt");
+//			url = new URL("http://www.visitgreece.gr/deployedFiles/StaticFiles/maps/Peloponnese_map.pdf");
+//			File file = new File("Peloponnese_map.pdf");
+			url = new URL("http://25.io/toau/audio/sample.txt");
+			File file = new File("Peloponnese_map.txt");
 
 			file.createNewFile();
 			FileUtils.copyURLToFile(url, new File(file.getPath()));
