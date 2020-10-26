@@ -18,10 +18,10 @@ public class SingleThreadDownload extends Thread {
 		long startTime = System.currentTimeMillis();
 
 		try {
-//			url = new URL("http://www.ubicomp.org/ubicomp2003/adjunct_proceedings/proceedings.pdf");
-//			File target = new File("proceedings.pdf");
-			url = new URL("http://25.io/toau/audio/sample.txt");
-			File target = new File("proceedings.txt");
+			url = new URL("http://www.ubicomp.org/ubicomp2003/adjunct_proceedings/proceedings.pdf");
+			File target = new File("proceedings.pdf");
+//			url = new URL("http://25.io/toau/audio/sample.txt");
+//			File target = new File("proceedings.txt");
 
 			try (BufferedInputStream bis = new BufferedInputStream(url.openStream())) {
 				try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(target))) {
@@ -42,7 +42,6 @@ public class SingleThreadDownload extends Thread {
 
 		endTime = (System.currentTimeMillis() - startTime) / 1000;
 
-		System.out.println("Flag became: " + MainClass.flag);
 		System.out.println("Downloaded in " + endTime + " seconds");
 		System.out.println("------------------------------");
 		endTime = 0;
@@ -53,10 +52,10 @@ public class SingleThreadDownload extends Thread {
 		startTime = System.currentTimeMillis();
 
 		try {
-//			url = new URL("https://www.hq.nasa.gov/alsj/a17/A17_FlightPlan.pdf");
-//			File target = new File("A17_FlightPlan.pdf");
-			url = new URL("http://25.io/toau/audio/sample.txt");
-			File target = new File("A17_FlightPlan.txt");
+			url = new URL("https://www.hq.nasa.gov/alsj/a17/A17_FlightPlan.pdf");
+			File target = new File("A17_FlightPlan.pdf");
+//			url = new URL("http://25.io/toau/audio/sample.txt");
+//			File target = new File("A17_FlightPlan.txt");
 
 			try (BufferedInputStream bis = new BufferedInputStream(url.openStream())) {
 				try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(target))) {
@@ -77,7 +76,6 @@ public class SingleThreadDownload extends Thread {
 
 		endTime = (System.currentTimeMillis() - startTime) / 1000;
 
-		System.out.println("Flag became: " + MainClass.flag);
 		System.out.println("Downloaded in " + endTime + " seconds");
 		System.out.println("------------------------------");
 		endTime = 0;
@@ -87,10 +85,10 @@ public class SingleThreadDownload extends Thread {
 		startTime = System.currentTimeMillis();
 
 		try {
-//					url = new URL("https://ars.els-cdn.com/content/image/1-s2.0-S0140673617321293-mmc1.pdf");
-//					File target = new File("1-s2.0-S0140673617321293-mmc1.pdf");
-			url = new URL("http://25.io/toau/audio/sample.txt");
-			File target = new File("1-s2.0-S0140673617321293-mmc1.txt");
+			url = new URL("https://ars.els-cdn.com/content/image/1-s2.0-S0140673617321293-mmc1.pdf");
+			File target = new File("1-s2.0-S0140673617321293-mmc1.pdf");
+//			url = new URL("http://25.io/toau/audio/sample.txt");
+//			File target = new File("1-s2.0-S0140673617321293-mmc1.txt");
 
 			try (BufferedInputStream bis = new BufferedInputStream(url.openStream())) {
 				try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(target))) {
@@ -120,10 +118,10 @@ public class SingleThreadDownload extends Thread {
 		startTime = System.currentTimeMillis();
 
 		try {
-//					url = new URL("http://www.visitgreece.gr/deployedFiles/StaticFiles/maps/Peloponnese_map.pdf");
-//					File target = new File("Peloponnese_map.pdf");
-			url = new URL("http://25.io/toau/audio/sample.txt");
-			File target = new File("Peloponnese_map.txt");
+			url = new URL("http://www.visitgreece.gr/deployedFiles/StaticFiles/maps/Peloponnese_map.pdf");
+			File target = new File("Peloponnese_map.pdf");
+//			url = new URL("http://25.io/toau/audio/sample.txt");
+//			File target = new File("Peloponnese_map.txt");
 
 			try (BufferedInputStream bis = new BufferedInputStream(url.openStream())) {
 				try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(target))) {
