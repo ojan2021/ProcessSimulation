@@ -5,6 +5,7 @@ public class MainClass {
 
 	public static void main(String[] args) {
 
+
 		
 		UbicompThread ubicompThread = new UbicompThread();
 		NasaThread nasaThread = new NasaThread();
@@ -24,6 +25,8 @@ public class MainClass {
 			visitgreeceThread.start();
 
 		} else if (thread_mode == 0) {
+			System.out.println("Mode: Single threaded");
+
 			sequentialDownload.start();
 		}
 	}
