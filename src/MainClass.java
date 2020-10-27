@@ -24,7 +24,7 @@ public class MainClass {
 
 			visitgreeceThread.start();
 
-		} else if (thread_mode == 0) {
+		} 	else if (thread_mode == 0) {
 			System.out.println("Mode: Single threaded");
 
 			sequentialDownload.start();
