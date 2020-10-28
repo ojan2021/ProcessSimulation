@@ -13,7 +13,6 @@ public class VisitgreeceThread extends Thread {
 
 		
 
-			System.out.println("File4 started");
 
 			long startTime = System.currentTimeMillis();
 			long endTime;
@@ -50,7 +49,6 @@ public class VisitgreeceThread extends Thread {
 			
 
 			System.out.println("File4 Downloaded in " + endTime + " seconds");
-			System.out.println("------------------------------");
 
 		
 

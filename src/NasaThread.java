@@ -9,7 +9,6 @@ public class NasaThread extends Thread {
 	@Override
 	public void run() {
 
-		System.out.println("File2 started");
 
 		long startTime = System.currentTimeMillis();
 		long endTime;
@@ -43,7 +42,6 @@ public class NasaThread extends Thread {
 		endTime = (System.currentTimeMillis() - startTime) / 1000;
 
 		System.out.println("File2 Downloaded in " + endTime + " seconds");
-		System.out.println("------------------------------");
 
 	}
 }

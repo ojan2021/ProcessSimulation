@@ -9,7 +9,6 @@ public class ArsThread extends Thread {
 	@Override
 	public void run() {
 
-		System.out.println("File3 started");
 
 		long startTime = System.currentTimeMillis();
 		long endTime;
@@ -44,7 +43,6 @@ public class ArsThread extends Thread {
 		endTime = (System.currentTimeMillis() - startTime) / 1000;
 
 		System.out.println("File3 Downloaded in " + endTime + " seconds");
-		System.out.println("------------------------------");
 
 	}
 }
