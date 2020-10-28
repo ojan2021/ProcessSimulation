@@ -11,12 +11,15 @@ public class MainClass {
         ArsThread arsThread = new ArsThread();
         VisitgreeceThread visitgreeceThread = new VisitgreeceThread();
         SingleThreadDownload sequentialDownload = new SingleThreadDownload();
+        TwoCoreDownload_1 twoCoreDownload_1 = new TwoCoreDownload_1();
+        TwoCoreDownload_2 twoCoreDownload_2 = new TwoCoreDownload_2();
 
 //		thread_mode = Integer.parseInt(args[0]);
         // get the runtime object associated with the current Java application
 
         // get the number of processors available to the Java virtual machine
         int numberOfProcessors = runtime.availableProcessors();
+//        numberOfProcessors = 2;   //Test case for checking 2 cores
 
         System.out.println("Number of the cores: " + numberOfProcessors);
 
@@ -24,6 +27,8 @@ public class MainClass {
             if (numberOfProcessors == 1) {
                 sequentialDownload.start();
             } else if (numberOfProcessors == 2) {
+                twoCoreDownload_1.start();
+                twoCoreDownload_2.start();
 
             } else if (numberOfProcessors > 2) {
                 System.out.println("Mode: Multi-threaded");
