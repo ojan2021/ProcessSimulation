@@ -1,6 +1,7 @@
+import java.util.Scanner;
 
 public class MainClass {
-    public static int thread_mode = 1;
+    public static int thread_mode;
     public static int flag = 0;
 
     public static void main(String[] args) {
@@ -14,9 +15,13 @@ public class MainClass {
         TwoCoreDownload_1 twoCoreDownload_1 = new TwoCoreDownload_1();
         TwoCoreDownload_2 twoCoreDownload_2 = new TwoCoreDownload_2();
 
-//		thread_mode = Integer.parseInt(args[0]);
-        // get the runtime object associated with the current Java application
-
+        try {
+            thread_mode = Integer.parseInt(args[0]);
+        }catch (ArrayIndexOutOfBoundsException e){
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Please choose a thread mode (0 for single-threaded, 1 for multi-threaded: ");
+            thread_mode = sc.nextInt();
+        }
         // get the number of processors available to the Java virtual machine
         int numberOfProcessors = runtime.availableProcessors();
 //        numberOfProcessors = 2;   //Test case for checking 2 cores
@@ -41,7 +46,6 @@ public class MainClass {
 
                 visitgreeceThread.start();
             }
-
 
         } else if (thread_mode == 0) {
             System.out.println("Mode: Single threaded");
