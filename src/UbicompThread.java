@@ -5,18 +5,21 @@ import java.net.URL;
 
 public class UbicompThread extends Thread {
 
+    public static long endTime;
+
     @Override
     public void run() {
 
         long startTime = System.currentTimeMillis();
-        long endTime;
 
         URL url;
         try {
-//				url = new URL("http://www.ubicomp.org/ubicomp2003/adjunct_proceedings/proceedings.pdf");
-//				File target = new File("proceedings.pdf");
-            url = new URL("http://25.io/toau/audio/sample.txt");
-            File file = new File("proceedings.txt");
+            //Small file for testing
+//            url = new URL("http://25.io/toau/audio/sample.txt");
+//            File file = new File("proceedings.txt");
+
+            url = new URL("http://www.ubicomp.org/ubicomp2003/adjunct_proceedings/proceedings.pdf");
+            File file = new File("proceedings.pdf");
 
             try (BufferedInputStream bis = new BufferedInputStream(url.openStream())) {
                 try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file))) {

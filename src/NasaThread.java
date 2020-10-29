@@ -5,21 +5,23 @@ import java.net.URL;
 
 public class NasaThread extends Thread {
 
+	public static long endTime;
 
 	@Override
 	public void run() {
 
 
 		long startTime = System.currentTimeMillis();
-		long endTime;
 
 		URL url;
 
 		try {
-//			url = new URL("https://www.hq.nasa.gov/alsj/a17/A17_FlightPlan.pdf");
-//			File file = new File("A17_FlightPlan.pdf");
-			url = new URL("http://25.io/toau/audio/sample.txt");
-			File file = new File("A17_FlightPlan.txt");
+			//Small file for testing
+//            url = new URL("http://25.io/toau/audio/sample.txt");
+//            File file = new File("A17_FlightPlan.txt");
+
+			url = new URL("https://www.hq.nasa.gov/alsj/a17/A17_FlightPlan.pdf");
+			File file = new File("A17_FlightPlan.pdf");
 
 			try (BufferedInputStream bis = new BufferedInputStream(url.openStream())) {
 				try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file))) {

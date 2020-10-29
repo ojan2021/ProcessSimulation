@@ -4,6 +4,7 @@ import java.net.URL;
 
 
 public class TwoCoreDownload_2 extends Thread {
+    public static long totalTime = 0;
     @Override
     public void run() {
         long endTime = 0;
@@ -13,10 +14,12 @@ public class TwoCoreDownload_2 extends Thread {
 //------------------------------------------------------------------------------------------------------------
 
         try {
-//			url = new URL("https://ars.els-cdn.com/content/image/1-s2.0-S0140673617321293-mmc1.pdf");
-//			File file = new File("1-s2.0-S0140673617321293-mmc1.pdf");
-            url = new URL("http://25.io/toau/audio/sample.txt");
-            File file = new File("1-s2.0-S0140673617321293-mmc1.txt");
+            //Small file for testing
+//            url = new URL("http://25.io/toau/audio/sample.txt");
+//            File file = new File("1-s2.0-S0140673617321293-mmc1.txt");
+
+            url = new URL("https://ars.els-cdn.com/content/image/1-s2.0-S0140673617321293-mmc1.pdf");
+            File file = new File("1-s2.0-S0140673617321293-mmc1.pdf");
 
             try (BufferedInputStream bis = new BufferedInputStream(url.openStream())) {
                 try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file))) {
@@ -36,6 +39,7 @@ public class TwoCoreDownload_2 extends Thread {
         }
 
         endTime = (System.currentTimeMillis() - startTime) / 1000;
+        totalTime += endTime;
 
         System.out.println("File3 Downloaded in " + endTime + " seconds");
 
@@ -46,10 +50,12 @@ public class TwoCoreDownload_2 extends Thread {
 
         try {
 
-//			url = new URL("http://www.visitgreece.gr/deployedFiles/StaticFiles/maps/Peloponnese_map.pdf");
-//			File file = new File("Peloponnese_map.pdf");
-            url = new URL("http://25.io/toau/audio/sample.txt");
-            File file = new File("Peloponnese_map.txt");
+            //Small file for testing
+//            url = new URL("http://25.io/toau/audio/sample.txt");
+//            File file = new File("Peloponnese_map.txt");
+
+            url = new URL("http://www.visitgreece.gr/deployedFiles/StaticFiles/maps/Peloponnese_map.pdf");
+            File file = new File("Peloponnese_map.pdf");
 
             try (BufferedInputStream bis = new BufferedInputStream(url.openStream())) {
                 try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file))) {
@@ -69,6 +75,7 @@ public class TwoCoreDownload_2 extends Thread {
         }
 
         endTime = (System.currentTimeMillis() - startTime) / 1000;
+        totalTime += endTime;
 
         System.out.println("File4 Downloaded in " + endTime + " seconds");
 

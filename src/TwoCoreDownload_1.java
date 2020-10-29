@@ -4,6 +4,9 @@ import java.net.URL;
 
 
 public class TwoCoreDownload_1 extends Thread {
+
+    public static long totalTime = 0;
+
     @Override
     public void run() {
         long endTime = 0;
@@ -13,10 +16,12 @@ public class TwoCoreDownload_1 extends Thread {
 
 
         try {
-//			url = new URL("http://www.ubicomp.org/ubicomp2003/adjunct_proceedings/proceedings.pdf");
-//			File target = new File("proceedings.pdf");
-            url = new URL("http://25.io/toau/audio/sample.txt");
-            File file = new File("proceedings.txt");
+            //Small file for testing
+//            url = new URL("http://25.io/toau/audio/sample.txt");
+//            File file = new File("proceedings.txt");
+
+            url = new URL("http://www.ubicomp.org/ubicomp2003/adjunct_proceedings/proceedings.pdf");
+            File file = new File("proceedings.pdf");
 
             try (BufferedInputStream bis = new BufferedInputStream(url.openStream())) {
                 try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file))) {
@@ -36,6 +41,7 @@ public class TwoCoreDownload_1 extends Thread {
         }
 
         endTime = (System.currentTimeMillis() - startTime) / 1000;
+        totalTime += endTime;
 
         System.out.println("File1 downloaded in " + endTime + " seconds");
         endTime = 0;
@@ -45,10 +51,12 @@ public class TwoCoreDownload_1 extends Thread {
         startTime = System.currentTimeMillis();
 
         try {
-//			url = new URL("https://www.hq.nasa.gov/alsj/a17/A17_FlightPlan.pdf");
-//			File file = new File("A17_FlightPlan.pdf");
-            url = new URL("http://25.io/toau/audio/sample.txt");
-            File file = new File("A17_FlightPlan.txt");
+            //Small file for testing
+//            url = new URL("http://25.io/toau/audio/sample.txt");
+//            File file = new File("A17_FlightPlan.txt");
+
+            url = new URL("https://www.hq.nasa.gov/alsj/a17/A17_FlightPlan.pdf");
+            File file = new File("A17_FlightPlan.pdf");
 
             try (BufferedInputStream bis = new BufferedInputStream(url.openStream())) {
                 try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file))) {
@@ -68,7 +76,7 @@ public class TwoCoreDownload_1 extends Thread {
         }
 
         endTime = (System.currentTimeMillis() - startTime) / 1000;
-
+        totalTime += endTime;
         System.out.println("File2 Downloaded in " + endTime + " seconds");
         endTime = 0;
 

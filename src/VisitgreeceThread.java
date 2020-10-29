@@ -6,26 +6,22 @@ import java.net.URL;
 
 public class VisitgreeceThread extends Thread {
 
-
+	public static long endTime;
 
 	@Override
 	public void run() {
 
-		
-
-
-			long startTime = System.currentTimeMillis();
-			long endTime;
-
-			URL url;
-
+		long startTime = System.currentTimeMillis();
+		URL url;
 
 		try {
 
-//			url = new URL("http://www.visitgreece.gr/deployedFiles/StaticFiles/maps/Peloponnese_map.pdf");
-//			File file = new File("Peloponnese_map.pdf");
-			url = new URL("http://25.io/toau/audio/sample.txt");
-			File file = new File("Peloponnese_map.txt");
+			//Small file for testing
+//            url = new URL("http://25.io/toau/audio/sample.txt");
+//            File file = new File("Peloponnese_map.txt");
+
+			url = new URL("http://www.visitgreece.gr/deployedFiles/StaticFiles/maps/Peloponnese_map.pdf");
+			File file = new File("Peloponnese_map.pdf");
 
 			try (BufferedInputStream bis = new BufferedInputStream(url.openStream())) {
 				try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file))) {
