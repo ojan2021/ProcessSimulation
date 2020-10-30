@@ -27,23 +27,24 @@ public class MainClass {
         int numberOfProcessors = runtime.availableProcessors();
 //        numberOfProcessors = 2;   //Test case for checking 2 cores
 
-        System.out.println("Number of the cores: " + numberOfProcessors);
+//        System.out.println("Number of the cores: " + numberOfProcessors);
 
         if (thread_mode == 1) {
             System.out.println("Mode: Multi-threaded");
-            System.out.println("Files: ");
+            System.out.print("Files: ");
 
             if (numberOfProcessors == 1) {
                 sequentialDownload.start();
 
             } else if (numberOfProcessors == 2) {
+                long time = System.currentTimeMillis();
                 twoCoreDownload_1.start();
                 twoCoreDownload_2.start();
-                totalTimeFor2Cores(twoCoreDownload_1,twoCoreDownload_2);
-
+                totalTimeFor2Cores(time, twoCoreDownload_1, twoCoreDownload_2);
 
 
             } else if (numberOfProcessors > 2) {
+                long time = System.currentTimeMillis();
 
                 ubicompThread.start();
 
@@ -53,34 +54,34 @@ public class MainClass {
 
                 visitgreeceThread.start();
 
-                totalTimeForMoreCores(ubicompThread,nasaThread,arsThread,visitgreeceThread);
+                totalTimeForMoreCores(time,ubicompThread, nasaThread, arsThread, visitgreeceThread);
 
             }
 
         } else if (thread_mode == 0) {
             System.out.println("Mode: Single threaded");
-            System.out.println("Files: ");
+            System.out.print("Files: ");
 
             sequentialDownload.start();
         }
     }
 
-    public static void totalTimeFor2Cores(TwoCoreDownload_1 t1, TwoCoreDownload_2 t2)
-    {
+    public static void totalTimeFor2Cores(long time, TwoCoreDownload_1 t1, TwoCoreDownload_2 t2) {
         while (true)
-            if(!t1.isAlive() && !t2.isAlive()) {
-                long res = TwoCoreDownload_1.totalTime + TwoCoreDownload_2.totalTime;
-                System.out.println("Total time: " + res + " seconds");
+            if (!t1.isAlive() && !t2.isAlive()) {
+                time = (long) ((System.currentTimeMillis() - time)/ 1000.00);
+                System.out.println();
+                System.out.println("Total time: " + time + " seconds");
                 break;
             }
     }
 
-    public static void totalTimeForMoreCores(UbicompThread t1, NasaThread t2, ArsThread t3, VisitgreeceThread t4)
-    {
+    public static void totalTimeForMoreCores(long time, UbicompThread t1, NasaThread t2, ArsThread t3, VisitgreeceThread t4) {
         while (true)
-            if(!t1.isAlive() && !t2.isAlive() && !t3.isAlive() && !t4.isAlive()) {
-                long res = UbicompThread.endTime + NasaThread.endTime + ArsThread.endTime + VisitgreeceThread.endTime;
-                System.out.println("Total time: " + res + " seconds");
+            if (!t1.isAlive() && !t2.isAlive() && !t3.isAlive() && !t4.isAlive()) {
+                time = (long) ((System.currentTimeMillis() - time)/ 1000.00);
+                System.out.println();
+                System.out.println("Total time: " + time + " seconds");
                 break;
             }
     }

@@ -44,7 +44,8 @@ public class SingleThreadDownload extends Thread {
 
         endTime = (System.currentTimeMillis() - startTime) / 1000;
         totalTime += endTime;
-        System.out.println("File1 downloaded in " + endTime + " seconds");
+        System.out.print("file1 -> done, ");
+//        System.out.println("File1 downloaded in " + endTime + " seconds");
         endTime = 0;
         startTime = 0;
 //------------------------------------------------------------------------------------------------------------
@@ -79,8 +80,9 @@ public class SingleThreadDownload extends Thread {
 
         endTime = (System.currentTimeMillis() - startTime) / 1000;
         totalTime += endTime;
+        System.out.print("file2 -> done, ");
 
-        System.out.println("File2 Downloaded in " + endTime + " seconds");
+//        System.out.println("File2 Downloaded in " + endTime + " seconds");
         endTime = 0;
 //------------------------------------------------------------------------------------------------------------
 
@@ -115,7 +117,9 @@ public class SingleThreadDownload extends Thread {
         endTime = (System.currentTimeMillis() - startTime) / 1000;
 
         totalTime += endTime;
-        System.out.println("File3 Downloaded in " + endTime + " seconds");
+        System.out.print("file3 -> done, ");
+
+//        System.out.println("File3 Downloaded in " + endTime + " seconds");
 
         endTime = 0;
 //------------------------------------------------------------------------------------------------------------
@@ -150,8 +154,9 @@ public class SingleThreadDownload extends Thread {
 
         endTime = (System.currentTimeMillis() - startTime) / 1000;
         totalTime += endTime;
+        System.out.println("file4 -> done.");
 
-        System.out.println("File4 Downloaded in " + endTime + " seconds");
+//        System.out.println("File4 Downloaded in " + endTime + " seconds");
         System.out.println("Total time: " + totalTime + " seconds");
 
         endTime = 0;

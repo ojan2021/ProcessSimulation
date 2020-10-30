@@ -5,12 +5,9 @@ import java.net.URL;
 
 public class UbicompThread extends Thread {
 
-    public static long endTime;
 
     @Override
     public void run() {
-
-        long startTime = System.currentTimeMillis();
 
         URL url;
         try {
@@ -38,9 +35,7 @@ public class UbicompThread extends Thread {
             e1.printStackTrace();
         }
 
-        endTime = (System.currentTimeMillis() - startTime) / 1000;
-
-        System.out.println("File1 Downloaded in " + endTime + " seconds");
+        System.out.print("file1 -> done ");
 
     }
 }

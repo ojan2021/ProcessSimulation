@@ -4,11 +4,8 @@ import java.net.URL;
 
 
 public class TwoCoreDownload_2 extends Thread {
-    public static long totalTime = 0;
     @Override
     public void run() {
-        long endTime = 0;
-        long startTime = System.currentTimeMillis();
 
         URL url;
 //------------------------------------------------------------------------------------------------------------
@@ -38,15 +35,8 @@ public class TwoCoreDownload_2 extends Thread {
             e1.printStackTrace();
         }
 
-        endTime = (System.currentTimeMillis() - startTime) / 1000;
-        totalTime += endTime;
-
-        System.out.println("File3 Downloaded in " + endTime + " seconds");
-
-        endTime = 0;
+        System.out.print("file3 -> done ");
 //------------------------------------------------------------------------------------------------------------
-
-        startTime = System.currentTimeMillis();
 
         try {
 
@@ -74,12 +64,7 @@ public class TwoCoreDownload_2 extends Thread {
             e1.printStackTrace();
         }
 
-        endTime = (System.currentTimeMillis() - startTime) / 1000;
-        totalTime += endTime;
-
-        System.out.println("File4 Downloaded in " + endTime + " seconds");
-
-        endTime = 0;
+        System.out.print("file4 -> done ");
 //------------------------------------------------------------------------------------------------------------
 
 
